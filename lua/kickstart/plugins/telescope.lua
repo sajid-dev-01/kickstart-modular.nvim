@@ -8,7 +8,7 @@
 return {
   { -- Fuzzy Finder (files, lsp, etc)
     'nvim-telescope/telescope.nvim',
-    event = 'VimEnter',
+    event = 'BufWritePre',
     -- branch = '0.1.x',
     dependencies = {
       'nvim-lua/plenary.nvim',
@@ -29,6 +29,23 @@ return {
 
       -- Useful for getting pretty icons, but requires a Nerd Font.
       { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+    },
+    -- stylua: ignore
+    keys = {
+      { '<leader>s', function() require 'telescope.builtin' end,                   desc = '[s]earch', },
+      { '<leader>sb', function() require('telescope.builtin').buffers() end,       desc = '[s]earch [b]uffers', },
+      { '<leader>sd', function() require('telescope.builtin').diagnostics() end,   desc = '[s]earch [d]iagnostics', },
+      { '<leader>sf', function() require('telescope.builtin').find_files() end,    desc = '[s]earch [f]iles', },
+      { '<leader>sg', function() require('telescope.builtin').live_grep() end,     desc = '[s]earch by [g]rep', },
+      { '<leader>sG', function() require 'custom.config.multi-ripgrep' end,        desc = '[s]earch by [G]rep (with shortcuts)', },
+      { '<leader>sh', function() require('telescope.builtin').help_tags() end,     desc = '[s]earch [h]elp', },
+      { '<leader>sk', function() require('telescope.builtin').keymaps() end,       desc = '[s]earch [k]eymaps', },
+      { '<leader>sr', function() require('telescope.builtin').resume() end,        desc = '[s]earch [r]esume', },
+      { '<leader>ss', function() require 'telescope.builtin' end,                  desc = '[s]earch [s]elect Telescope', },
+      { '<leader>sw', function() require('telescope.builtin').grep_string() end,   desc = '[s]earch current [w]ord', },
+      { '<leader>s.', function() require('telescope.builtin').oldfiles() end,      desc = '[s]earch Recent Files ("." for repeat)', },
+      { '<leader>s"', function() require('telescope.builtin').registers() end,     desc = '[s]earch registers', },
+      { "<leader>s'", function() require('telescope.builtin').marks() end,         desc = '[s]earch marks', },
     },
     config = function()
       -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -79,21 +96,21 @@ return {
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
-      local multi_ripgrep = require 'custom.config.multi-ripgrep'
+      -- local multi_ripgrep = require 'custom.config.multi-ripgrep'
 
-      vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
-      vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
-      vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
-      vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
-      vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
-      vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
-      vim.keymap.set('n', '<leader>sG', multi_ripgrep, { desc = '[S]earch by [G]rep (with shortcuts)' })
-      vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
-      vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
-      vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-      vim.keymap.set('n', '<leader>s"', builtin.registers, { desc = '[S]earch registers' })
-      vim.keymap.set('n', "<leader>s'", builtin.marks, { desc = '[S]earch marks' })
-      vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+      -- vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
+      -- vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
+      -- vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+      -- vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
+      -- vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
+      -- vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
+      -- vim.keymap.set('n', '<leader>sG', multi_ripgrep, { desc = '[S]earch by [G]rep (with shortcuts)' })
+      -- vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
+      -- vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
+      -- vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
+      -- vim.keymap.set('n', '<leader>s"', builtin.registers, { desc = '[S]earch registers' })
+      -- vim.keymap.set('n', "<leader>s'", builtin.marks, { desc = '[S]earch marks' })
+      -- vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
@@ -120,4 +137,5 @@ return {
     end,
   },
 }
+
 -- vim: ts=2 sts=2 sw=2 et
