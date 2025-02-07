@@ -71,6 +71,7 @@ return {
     -- { '<leader>fgc', '<cmd>FzfLua git_commits<CR>',                             desc = 'Commits' },
     -- { '<leader>fgs', '<cmd>FzfLua git_status<CR>',                              desc = 'Status' },
     -- search
+    { '<leader><leader>', '<cmd>FzfLua buffers<cr>',                            desc = '[ ] Find existing buffers' },
     { '<leader>fa', '<cmd>FzfLua autocmds<cr>',                                 desc = '[f]ind [a]uto Commands' },
     { '<leader>fb', '<cmd>FzfLua buffers<cr>',                                  desc = '[f]ind [b]uffers' },
     { '<leader>fc', '<cmd>FzfLua commands<cr>',                                 desc = '[f]ind [c]ommands' },
