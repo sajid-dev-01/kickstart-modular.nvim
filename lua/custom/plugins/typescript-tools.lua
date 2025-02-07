@@ -14,8 +14,8 @@ return {
       tsserver_file_preferences = {
         includeInlayParameterNameHints = 'all',
         includeCompletionsForModuleExports = true,
-        -- includeInlayFunctionParameterTypeHints = true,
-        -- includeInlayVariableTypeHints = true,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayVariableTypeHints = true,
         -- includeInlayFunctionLikeReturnTypeHints = true,
         -- includeInlayPropertyDeclarationTypeHints = true,
         quotePreference = 'double',
@@ -28,6 +28,7 @@ return {
         trimTrailingWhitespace = true,
         allowIncompleteCompletions = false,
         allowRenameOfImportPath = false,
+        insertSpaceAfterOpeningAndBeforeClosingEmptyBraces = false,
       },
     },
   },
