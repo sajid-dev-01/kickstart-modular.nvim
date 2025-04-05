@@ -38,6 +38,8 @@ return {
         },
       }
 
+      require('mini.sessions').setup()
+
       vim.keymap.set('n', '<leader>E', '<cmd>lua MiniFiles.open() <cr>', { desc = 'Mini file explorer' })
 
       -- Simple and easy statusline.
