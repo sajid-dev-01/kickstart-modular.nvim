@@ -4,6 +4,18 @@ return {
   lazy = false,
   opts = {
     bigfile = { enabled = true },
+    indent = { enabled = false },
+    input = { enabled = true },
+    notifier = { enabled = true },
+    quickfile = { enabled = true },
+    words = { enabled = true },
+    scroll = { enabled = false },
+    statuscolumn = { enabled = true },
+    styles = {
+      notification = {
+        wo = { wrap = true }, -- Wrap notifications
+      },
+    },
     dashboard = {
       width = 60,
       row = nil, -- dashboard position. nil for center
@@ -132,18 +144,6 @@ return {
         --   end, cmds)
         -- end,
         { section = 'startup' },
-      },
-    },
-    indent = { enabled = true },
-    input = { enabled = true },
-    notifier = { enabled = true },
-    quickfile = { enabled = true },
-    words = { enabled = true },
-    scroll = { enabled = false },
-    statuscolumn = { enabled = true },
-    styles = {
-      notification = {
-        wo = { wrap = true }, -- Wrap notifications
       },
     },
   },
