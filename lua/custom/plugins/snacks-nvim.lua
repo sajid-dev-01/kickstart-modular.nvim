@@ -4,6 +4,19 @@ return {
   lazy = false,
   opts = {
     bigfile = { enabled = true },
+    explorer = {},
+    ---@class snacks.picker.explorer.Config
+    picker = {
+      sources = {
+        explorer = {
+          hidden = true,
+          ignored = true,
+          layout = {
+            layout = { position = 'right' },
+          },
+        },
+      },
+    },
     indent = { enabled = false },
     input = { enabled = true },
     notifier = { enabled = true },
@@ -178,6 +191,9 @@ return {
         }
       end,
     },
+    { "<leader>fe", function() Snacks.explorer() end, desc = "Explorer Snacks (root dir)", },
+    { "<leader>fE", function() Snacks.explorer() end, desc = "Explorer Snacks (cwd)", },
+    { "<leader>e", "<leader>fe", desc = "Explorer Snacks (root dir)", remap = true },
   },
   init = function()
     -- stylua: ignore
